@@ -1,1 +1,1 @@
-# kinetics100-downloader
+# Kinetics-100 Dataset Downloader
