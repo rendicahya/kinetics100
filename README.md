@@ -13,10 +13,11 @@ cd kinetics100
 3. Configure `config.json`.
 4. Run `check.py` for a precheck. As of January 5, 2024:
 
-| Split | Total | Found |
-|-------|-------|-------|
-| Train | 6,400 | 6,351 |
-| Val   | 1,200 | 1,190 |
-| Test  | 2,400 | 2,379 |
+| Split | Total  | Found |
+|-------|--------|-------|
+| Train | 6,400  | 6,351 |
+| Val   | 1,200  | 1,190 |
+| Test  | 2,400  | 2,379 |
+| Total | 10,000 | 9,920 |
 
-5. Run `build.py` to build Kinetics-100.
+5. Run `build.py` to build Kinetics-100. It creates symlinks from the Kinetics-400.
