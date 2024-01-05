@@ -7,6 +7,7 @@
 
 ```bash
 git clone --recursive https://github.com/rendicahya/kinetics100.git
+cd kinetics100
 ```
 
 3. Configure `config.json`.
@@ -18,4 +19,4 @@ git clone --recursive https://github.com/rendicahya/kinetics100.git
 | Val   | 1,200 | 1,190 |
 | Test  | 2,400 | 2,379 |
 
-5. Run `make.py` to build Kinetics-100.
+5. Run `build.py` to build Kinetics-100.
