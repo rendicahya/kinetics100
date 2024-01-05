@@ -1,0 +1,6 @@
+{
+  "kinetics400": {
+    "root": "/nas.dbms/randy/datasets/kinetics400",
+    "ext": ".mp4"
+  }
+}
