@@ -1,9 +1,8 @@
 from pathlib import Path
 
 from assertpy.assertpy import assert_that
-from python_config import Config
+from config import settings as conf
 
-conf = Config("config.json")
 k400_root = Path(conf.kinetics400.root)
 ext = conf.kinetics400.ext
 files = set()
@@ -13,11 +12,13 @@ print("Scanning directories...")
 
 for split in "train", "val", "test":
     for action in (k400_root / "videos" / split).iterdir():
-        files.update({
-            file.stem.strip()
-            for file in action.iterdir()
-            if file.is_file() and file.suffix == ext
-        })
+        files.update(
+            {
+                file.stem.strip()
+                for file in action.iterdir()
+                if file.is_file() and file.suffix == ext
+            }
+        )
 
 for split in "train", "val", "test":
     file_list_path = Path("CMN/kinetics-100") / f"{split}.list"

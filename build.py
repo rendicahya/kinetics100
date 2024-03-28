@@ -2,10 +2,9 @@ import os
 from pathlib import Path
 
 from assertpy.assertpy import assert_that
-from python_config import Config
+from config import settings as conf
 from tqdm import tqdm
 
-conf = Config("config.json")
 k400_root = Path(conf.kinetics400.root)
 k100_root = Path(conf.kinetics100.root)
 ext = conf.kinetics400.ext
