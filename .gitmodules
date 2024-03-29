@@ -7,3 +7,6 @@
 [submodule "assertpy"]
 	path = assertpy
 	url = https://github.com/rendicahya/assertpy.git
+[submodule "VideoSSL"]
+	path = VideoSSL
+	url = https://github.com/LongLong-Jing/VideoSSL.git
