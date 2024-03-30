@@ -26,14 +26,12 @@ for split in "labeled0", "unlabeled0", "val0":
     )
 
     assert_that(file_list_path).is_file().is_readable()
-    print(f"[{split}]")
+    print(f"\n[{split}]")
 
     with open(file_list_path) as f:
         file_list = f.readlines()
 
-    n_created = 0
-    n_files = len(file_list)
-    bar = tqdm(total=n_files)
+    bar = tqdm(total=len(file_list))
 
     for file in file_list:
         target_split, action, filename = file.strip().split("/")
@@ -55,7 +53,5 @@ for split in "labeled0", "unlabeled0", "val0":
             os.symlink(src, dst)
 
         bar.update(1)
-        n_created += 1
 
     bar.close()
-    print(f"Created: {n_created}/{n_files}")
