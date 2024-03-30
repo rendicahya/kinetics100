@@ -1,9 +1,13 @@
 {
-  "kinetics400": {
+  "fileloc": "fileloc.json",
+  "op": "symlink",
+  "input": {
     "root": "/nas.dbms/randy/datasets/kinetics400",
     "ext": ".mp4"
   },
-  "kinetics100": {
-    "root": "/nas.dbms/randy/datasets/kinetics100"
+  "output": {
+    "root": "/nas.dbms/randy/datasets/kinetics100",
+    "n_classes": 100,
+    "partition": "1p"
   }
 }
