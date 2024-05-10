@@ -1,5 +1,9 @@
 {
   "fileloc": "fileloc.json",
+  "replacements": {
+    "list": "replacements.json",
+    "dir": "replacement/replacement_for_corrupted_k400"
+  },
   "op": "symlink",
   "input": {
     "root": "/nas.dbms/randy/datasets/kinetics400",

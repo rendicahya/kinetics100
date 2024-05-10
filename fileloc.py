@@ -15,5 +15,15 @@ for split in "train", "val", "test":
     for file in (in_root / split).glob(f"**/*{ext}"):
         files[file.stem.strip()] = str(file.parent.relative_to(in_root))
 
-with open(conf.filelist, "w") as f:
+with open(conf.fileloc, "w") as f:
     json.dump(files, f)
+
+replacements = [
+    file.stem
+    for file in (in_root / "replacement/replacement_for_corrupted_k400").glob(
+        f"**/*{ext}"
+    )
+]
+
+with open(conf.replacements.list, "w") as f:
+    json.dump(replacements, f)

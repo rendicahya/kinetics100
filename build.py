@@ -13,11 +13,17 @@ n_classes = conf.output.n_classes
 partition = conf.output.partition
 ext = conf.input.ext
 op = conf.op
+replacement_dir = conf.replacements.dir
+replacement_count = 0
+n_files = 0
 
 assert_that(in_root).is_directory().is_readable()
 
 with open(conf.fileloc) as f:
     fileloc = json.load(f)
+
+with open(conf.replacements.list) as f:
+    replacements = json.load(f)
 
 for split in "labeled0", "unlabeled0", "val0":
     file_list_path = (
@@ -38,14 +44,18 @@ for split in "labeled0", "unlabeled0", "val0":
         filename = filename.split("*")[0]
         stem = filename.split(".")[0]
 
-        if stem not in fileloc:
+        if stem in replacements:
+            src = in_root / replacement_dir / filename
+            replacement_count += 1
+        elif stem in fileloc:
+            src = in_root / fileloc[stem] / filename
+        else:
             continue
 
-        src = in_root / fileloc[stem] / filename
         dst = out_root / target_split.lower() / action / filename
+        n_files += 1
 
         dst.parent.mkdir(parents=True, exist_ok=True)
-        bar.set_description(f"{action}/{stem}")
 
         if op == "copy":
             shutil.copy(src, dst)
@@ -55,3 +65,6 @@ for split in "labeled0", "unlabeled0", "val0":
         bar.update(1)
 
     bar.close()
+
+print("Replacements:", replacement_count)
+print("Total:", n_files)

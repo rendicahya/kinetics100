@@ -163,3 +163,4 @@ cython_debug/
 .secrets.*
 
 fileloc.json
+replacements.json
